@@ -1,0 +1,230 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "mysql",
+  "tables": {
+    "booking": {
+      "name": "booking",
+      "columns": {
+        "booking_id": {
+          "autoincrement": true,
+          "name": "booking_id",
+          "type": "int unsigned",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dokter_id": {
+          "autoincrement": false,
+          "name": "dokter_id",
+          "type": "int unsigned",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jadwal_praktek_id": {
+          "autoincrement": false,
+          "name": "jadwal_praktek_id",
+          "type": "int unsigned",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nama_pasien": {
+          "autoincrement": false,
+          "name": "nama_pasien",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "no_telp": {
+          "autoincrement": false,
+          "name": "no_telp",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tanggal_booking": {
+          "autoincrement": false,
+          "name": "tanggal_booking",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jam_booking": {
+          "autoincrement": false,
+          "name": "jam_booking",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "booking_booking_id": {
+          "name": "booking_booking_id",
+          "columns": ["booking_id"]
+        }
+      },
+      "indexes": {
+        "dokter_id": {
+          "name": "dokter_id",
+          "columns": ["dokter_id"],
+          "isUnique": false
+        },
+        "jadwal_praktek_id": {
+          "name": "jadwal_praktek_id",
+          "columns": ["jadwal_praktek_id"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "booking_ibfk_1": {
+          "name": "booking_ibfk_1",
+          "tableFrom": "booking",
+          "tableTo": "dokter",
+          "columnsFrom": ["dokter_id"],
+          "columnsTo": ["dokter_id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "booking_ibfk_2": {
+          "name": "booking_ibfk_2",
+          "tableFrom": "booking",
+          "tableTo": "jadwal_praktek",
+          "columnsFrom": ["jadwal_praktek_id"],
+          "columnsTo": ["jadwal_praktek_id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "dokter": {
+      "name": "dokter",
+      "columns": {
+        "dokter_id": {
+          "autoincrement": true,
+          "name": "dokter_id",
+          "type": "int unsigned",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nama": {
+          "autoincrement": false,
+          "name": "nama",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "jenis": {
+          "autoincrement": false,
+          "name": "jenis",
+          "type": "enum('Gigi','Kecantikan','Umum')",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "created_at",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "dokter_dokter_id": {
+          "name": "dokter_dokter_id",
+          "columns": ["dokter_id"]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "jadwal_praktek": {
+      "name": "jadwal_praktek",
+      "columns": {
+        "jadwal_praktek_id": {
+          "autoincrement": true,
+          "name": "jadwal_praktek_id",
+          "type": "int unsigned",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dokter_id": {
+          "autoincrement": false,
+          "name": "dokter_id",
+          "type": "int unsigned",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hari": {
+          "autoincrement": false,
+          "name": "hari",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jam_buka": {
+          "autoincrement": false,
+          "name": "jam_buka",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jam_tutup": {
+          "autoincrement": false,
+          "name": "jam_tutup",
+          "type": "time",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "jadwal_praktek_jadwal_praktek_id": {
+          "name": "jadwal_praktek_jadwal_praktek_id",
+          "columns": ["jadwal_praktek_id"]
+        }
+      },
+      "indexes": {
+        "dokter_id": {
+          "name": "dokter_id",
+          "columns": ["dokter_id"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "jadwal_praktek_ibfk_1": {
+          "name": "jadwal_praktek_ibfk_1",
+          "tableFrom": "jadwal_praktek",
+          "tableTo": "dokter",
+          "columnsFrom": ["dokter_id"],
+          "columnsTo": ["dokter_id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    }
+  },
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {
+      "dokter": {
+        "columns": {
+          "created_at": {
+            "isDefaultAnExpression": true
+          }
+        }
+      }
+    },
+    "indexes": {}
+  }
+}
