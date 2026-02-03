@@ -1,14 +1,14 @@
 # 🏥 Rest API Klinik
 
-Rest API untuk sistem manajemen klinik yang digunakan untuk mengelola data pasien, dokter, dan layanan klinik.
+Rest API untuk sistem manajemen klinik yang digunakan untuk mengelola dokter, dan layanan jadwal praktek.
 
 ---
 
 ## 📌 Fitur
 
-- Manajemen Data Pasien
+- Manajemen Data Jadwal Praktek
 - Manajemen Data Dokter
-- Manajemen Layanan Klinik
+- Manajemen Layanan Booking
 - RESTful API
 - Menggunakan Express.js
 - Support Environment Variable
@@ -21,7 +21,8 @@ Rest API untuk sistem manajemen klinik yang digunakan untuk mengelola data pasie
 - Express.js
 - MySQL / Database
 - dotenv
-- Nodemon
+- Tsx
+- Drizzle
 
 ---
 
@@ -134,4 +135,4 @@ Pastikan database sudah dibuat sebelum menjalankan project.
 
 ## 👨‍💻 Author
 
-Dibuat oleh: **Nama Kamu**
+Dibuat oleh: **Rafly Mahendra**
