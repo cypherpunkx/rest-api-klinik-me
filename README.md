@@ -30,7 +30,7 @@ Rest API untuk sistem manajemen klinik yang digunakan untuk mengelola data pasie
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/USERNAME/NAMAREPO.git
+git clone https://github.com/cypherpunkx/rest-api-klinik-me.git
 ```
 
 ### 2. Masuk ke Folder Project
@@ -93,16 +93,16 @@ npm run dev
 
 ## 📡 Contoh Endpoint API
 
-### ✅ Get Semua Pasien
+### ✅ Get Semua Dokter
 
 ```
-GET /api/pasien
+GET /api/dokter
 ```
 
-### ✅ Tambah Pasien
+### ✅ Tambah Dokter
 
 ```
-POST /api/pasien
+POST /api/dokter
 ```
 
 Body JSON:
@@ -110,8 +110,7 @@ Body JSON:
 ```json
 {
   "nama": "Budi",
-  "alamat": "Jakarta",
-  "telepon": "08123456789"
+  "jenis": "Umum"
 }
 ```
 
